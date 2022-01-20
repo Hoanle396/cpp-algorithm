@@ -1,0 +1,42 @@
+void pre_order(struct NodeTree *T){
+	if (T!=NULL) {
+		printf("%d", T->data);
+		pre_order(T->left);
+		pre_order(T->right);
+	}	
+}
+
+void in_order(struct NodeTree *T){
+	if (T!=NULL) {
+		pre_order(T->left);
+		printf("%d", T->data); // duyet goc o giua
+		pre_order(T->right);
+	}	
+}
+
+void post_order(struct NodeTree *T){
+	if (T!=NULL) {
+		post_order(T->left);
+		post_order(T->right);
+		printf("%d", T->data); // duyet goc o cuoi
+	}	
+}
+void in_order(struct NodeTree *T){
+	if (T!=NULL) {
+		in_order(T->left);
+		printf("%d", T->data); // duyet goc o giua
+		in_order(T->right);
+	}	
+}
+void level_order(struct NodeTree *T){
+	create(Q); //tao hang doi Q rong
+	if(T!=NULL){
+		push(T, Q);
+		while (!empty(Q)){
+			p = pop(Q);
+			printf("%d", p->data);
+			if(p->left!=NULL) push(p->left, Q);
+			if(p->right!=NULL) push(p->right, Q);
+		}	
+	}
+}
